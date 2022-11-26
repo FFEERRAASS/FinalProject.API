@@ -29,5 +29,9 @@
     <ProjectReference Include="..\FinalProject.Infra\FinalProject.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Documents\" />
+  </ItemGroup>
+
 
 </Project>
