@@ -1,6 +1,5 @@
 ﻿using FinalProject.Core.Data;
 using FinalProject.Core.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -11,17 +10,19 @@ namespace FinalProject.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService userService;
-        public UsersController(IUserService userService) 
+        public UsersController(IUserService userService)
         {
             this.userService = userService;
         }
+        [HttpGet("GetAllUsers")]
+
         [HttpGet("GetAllUsers")] 
         public List<User> GetAllUsers()
         {
             return userService.GetAllUsers();
         }
         [HttpPost]
-        [Route("CreateUser")] 
+        [Route("CreateUser")]
         public void CreateUser(User user)
         {
             userService.CreateUser(user);
@@ -41,7 +42,7 @@ namespace FinalProject.API.Controllers
         [Route("GetUserById/{id}")]
         public User UserGetUserById(int id)
         {
-           return userService.UserGetUserById(id);
+            return userService.UserGetUserById(id);
         }
 
 
