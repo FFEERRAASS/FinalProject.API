@@ -15,7 +15,7 @@ namespace FinalProject.API.Controllers
         {
             this.userService = userService;
         }
-        [HttpGet("GetAllUsers")]
+        [HttpGet("GetAllUsers")] //fuck feras nn
         public List<User> GetAllUsers()
         {
             return userService.GetAllUsers();
