@@ -9,7 +9,7 @@ namespace FinalProject.Core.Repository
     {
         List<User> GetAllUsers();
         void CreateUser(User user);
-        public void UpdateUser(int id ,User user);
+        public void UpdateUser(User user);
         User UserGetUserById(int id);
         public void DeleteUser(int id);
     }

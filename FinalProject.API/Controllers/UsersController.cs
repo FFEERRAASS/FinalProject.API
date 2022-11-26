@@ -15,17 +15,35 @@ namespace FinalProject.API.Controllers
         {
             this.userService = userService;
         }
-        [HttpGet("GetAllUsers")] //fuck feras nn
+        [HttpGet("GetAllUsers")] 
         public List<User> GetAllUsers()
         {
             return userService.GetAllUsers();
         }
         [HttpPost]
-        [Route("Create")] // i love feras // ilove rhmani rhmani betchhh fff
+        [Route("CreateUser")] 
         public void CreateUser(User user)
         {
             userService.CreateUser(user);
         }
+        [HttpPut("UpdateUser")]
+        public void UpdateUser(User user)
+        {
+            userService.UpdateUser(user);
+        }
+        [HttpDelete]
+        [Route("DeleteUser/{id}")]
+        public void DeleteUser(int id)
+        {
+            userService.DeleteUser(id);
+        }
+        [HttpGet]
+        [Route("GetUserById/{id}")]
+        public User UserGetUserById(int id)
+        {
+           return userService.UserGetUserById(id);
+        }
+
 
 
     }
