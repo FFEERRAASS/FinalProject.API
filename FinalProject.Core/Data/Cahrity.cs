@@ -12,7 +12,7 @@ namespace FinalProject.Core.Data
             Documents = new HashSet<Document>();
         }
 
-        public decimal Charityid { get; set; }
+        public decimal Charityid { get; set; }//HHHبببب
         public decimal? UseridFk { get; set; }
         public decimal? DocidFk { get; set; }
         public string Imagepath { get; set; }
