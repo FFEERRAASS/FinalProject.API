@@ -22,9 +22,9 @@ namespace FinalProject.Infra.Service
         {
              userRepository.CreateUser(user);
         }
-        public void UpdateUser(int id, User user)
+        public void UpdateUser( User user)
         {
-            userRepository.UpdateUser(id, user);
+            userRepository.UpdateUser(user);
         }
         public User UserGetUserById(int id)
         {
