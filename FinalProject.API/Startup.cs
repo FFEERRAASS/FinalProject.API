@@ -42,7 +42,8 @@ namespace FinalProject.API
             services.AddScoped<ITestimonialService, TestimonialService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
-
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
 
 
 
