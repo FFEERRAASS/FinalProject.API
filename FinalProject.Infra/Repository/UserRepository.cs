@@ -34,7 +34,7 @@ namespace FinalProject.Infra.Repository
             p.Add("phone", user.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("accepts", user.Isaccepted, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("roleid", user.RoleidFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("username", user.Username, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("username", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.Execute("User_P.CreateUser", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateUser(int id, User user)
