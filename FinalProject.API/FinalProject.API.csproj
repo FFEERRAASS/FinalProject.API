@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -32,12 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Documents\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
+	
+	
 
 
 </Project>
