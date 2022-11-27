@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FinalProject.Infra.Repository
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository//
     {
         private readonly IDbContext dbContext;
         public CategoryRepository(IDbContext dbContext)
