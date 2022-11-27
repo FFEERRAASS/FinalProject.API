@@ -12,7 +12,7 @@ namespace FinalProject.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService userService;
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService)////////
         {
             this.userService = userService;
         }
@@ -24,7 +24,11 @@ namespace FinalProject.API.Controllers
             return userService.GetAllUsers();
         }
         [HttpPost]
-        [Route("CreateUser")] //1212
+
+        [Route("CreateUser")] // 551255
+
+        [Route("CreateUser")] 
+
         public void CreateUser(User user)
         {
             userService.CreateUser(user);
