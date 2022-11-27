@@ -18,7 +18,6 @@ namespace FinalProject.API.Controllers
         }
         [HttpGet("GetAllUsers")]
 
-        [HttpGet("GetAllUsers")] 
         public List<User> GetAllUsers()
         {
             return userService.GetAllUsers();
