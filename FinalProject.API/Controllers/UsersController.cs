@@ -1,7 +1,9 @@
 ﻿using FinalProject.Core.Data;
 using FinalProject.Core.Service;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace FinalProject.API.Controllers
 {
@@ -45,7 +47,21 @@ namespace FinalProject.API.Controllers
             return userService.UserGetUserById(id);
         }
 
-
+        [Route("UploadImages")]
+        [HttpPost]
+        public User UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var filename = Guid.NewGuid().ToString() + "_"+file.FileName;
+            var fullpath = Path.Combine("Images", filename);
+            using(var stream =new FileStream(fullpath , FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            User item = new User();
+            item.Imagepath= filename;
+            return item;
+        }
 
     }
 }
