@@ -51,7 +51,10 @@ namespace FinalProject.API
 
             services.AddScoped<ICharityRepository, CharityRepository>();
             services.AddScoped<ICharityService, CharityService>();
-
+            services.AddScoped<IBankRepository, BankRepository>();
+            services.AddScoped<IBankService, BankService>();
+            services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IHomeService, HomeService>();
 
             services.AddScoped<IAboutusRepository, AboutusRepository>();
             services.AddScoped<IAboutuService, AboutuService>();
