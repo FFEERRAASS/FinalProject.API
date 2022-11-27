@@ -45,6 +45,19 @@ namespace FinalProject.API
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleService, RoleService>();
 
+
+
+
+
+            services.AddScoped<ICharityRepository, CharityRepository>();
+            services.AddScoped<ICharityService, CharityService>();
+
+
+            services.AddScoped<IAboutusRepository, AboutusRepository>();
+            services.AddScoped<IAboutuService, AboutuService>();
+
+
+
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddScoped<IWalletService, WalletService>();
 
