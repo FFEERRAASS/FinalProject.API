@@ -18,13 +18,12 @@ namespace FinalProject.API.Controllers
         }
         [HttpGet("GetAllUsers")]
 
-        [HttpGet("GetAllUsers")] 
         public List<User> GetAllUsers()
         {
             return userService.GetAllUsers();
         }
         [HttpPost]
-        [Route("CreateUser")] ///////aaa
+        [Route("CreateUser")] /////// fdsfdsf
         public void CreateUser(User user)
         {
             userService.CreateUser(user);
