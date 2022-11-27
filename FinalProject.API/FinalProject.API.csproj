@@ -32,6 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Documents\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
 
