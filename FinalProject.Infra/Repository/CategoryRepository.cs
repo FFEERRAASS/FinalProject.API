@@ -1,8 +1,11 @@
-﻿using FinalProject.Core.Common;
+﻿using Dapper;
+using FinalProject.Core.Common;
 using FinalProject.Core.Data;
 using FinalProject.Core.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace FinalProject.Infra.Repository
@@ -17,27 +20,51 @@ namespace FinalProject.Infra.Repository
 
         public void CREATECategory(Category category)
         {
-            throw new NotImplementedException();
+            var p = new DynamicParameters();
+            p.Add("categoryName", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("categoryImage", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_desc", category.CategoryDesc, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_paragraph", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.Execute("Category_P.CREATECategory", p, commandType: CommandType.StoredProcedure);
+
         }
 
         public void DeleteCategory(int id)
         {
-            throw new NotImplementedException();
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.Execute("Category_P.DeleteCategory", p, commandType: CommandType.StoredProcedure);
+
         }
 
         public List<Category> GetAllCategory()
         {
-            throw new NotImplementedException();
+          
+            IEnumerable<Category> users = dbContext.Connection.Query<Category>("Category_P.GetAllCategory", commandType: CommandType.StoredProcedure);
+            return users.ToList();
         }
 
         public Category GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Category> users = dbContext.Connection.Query<Category>("Category_P.GetCategoryById", p, commandType: CommandType.StoredProcedure);
+            return users.FirstOrDefault();
         }
 
         public void UPDATECategory(int id, Category category)
         {
-            throw new NotImplementedException();
+            var p = new DynamicParameters();
+
+            p.Add("categoryID", category.Categoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("categoryNames", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("categoryImages", category.Categoryimage, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_descs", category.CategoryDesc, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_paragraphs", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.Execute("Category_P.UPDATECategory", p, commandType: CommandType.StoredProcedure);
+
         }
     }
 }
