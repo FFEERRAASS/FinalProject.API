@@ -44,14 +44,10 @@ namespace FinalProject.API
             services.AddScoped<IContactUsService, ContactUsService>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<IHomeRepository, HomeRepository>();
-            services.AddScoped<IHomeService, HomeService>();
-            services.AddScoped<IBankService, BankService>();
-            services.AddScoped<IBankRepository, BankRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
-
-
+            services.AddScoped<ICategoryService, CategoryService>();
 
             services.AddScoped<ICharityRepository, CharityRepository>();
             services.AddScoped<ICharityService, CharityService>();
