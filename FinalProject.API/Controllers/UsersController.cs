@@ -23,7 +23,7 @@ namespace FinalProject.API.Controllers
             return userService.GetAllUsers();
         }
         [HttpPost]
-        [Route("CreateUser")] ///////
+        [Route("CreateUser")] ///////aaa
         public void CreateUser(User user)
         {
             userService.CreateUser(user);
