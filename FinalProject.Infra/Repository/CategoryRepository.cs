@@ -22,7 +22,7 @@ namespace FinalProject.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("categoryName", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("categoryImage", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("categoryImage", category.Categoryimage, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("category_desc", category.CategoryDesc, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("category_paragraph", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
 
