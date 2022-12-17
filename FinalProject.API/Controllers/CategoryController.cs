@@ -27,6 +27,7 @@ namespace FinalProject.API.Controllers
         [HttpPost("CREATECategory")]
         public void CREATECategory([FromBody] Category document)
         {
+            
             categoryService.CREATECategory(document);
         }
 
@@ -49,17 +50,17 @@ namespace FinalProject.API.Controllers
 
         [Route("UploadImages")]
         [HttpPost]
-        public User UploadImage()
+        public Category UploadImage()
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullpath = Path.Combine("C:/Users/Rahmani/Desktop/Charity-platform/src/assets/img/", filename);
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-platform\\src\\assets\\img", filename);
             using (var stream = new FileStream(fullpath, FileMode.Create))
             {
                 file.CopyTo(stream);
             }
-            User item = new User();
-            item.Imagepath = filename;
+            Category item = new Category();
+            item.Categoryimage = filename;
             return item;
         }
 

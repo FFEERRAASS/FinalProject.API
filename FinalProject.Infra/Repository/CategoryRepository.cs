@@ -43,6 +43,7 @@ namespace FinalProject.Infra.Repository
           
             IEnumerable<Category> users = dbContext.Connection.Query<Category>("Category_P.GetAllCategory", commandType: CommandType.StoredProcedure);
             return users.ToList();
+           
         }
 
         public Category GetCategoryById(int id)
