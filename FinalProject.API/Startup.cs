@@ -32,6 +32,16 @@ namespace FinalProject.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(corsOptions => {
+                corsOptions.AddPolicy("policy",
+                builder => {
+                    builder.AllowAnyOrigin().AllowAnyMethod().
+                          AllowAnyHeader();
+                });
+
+
+            });
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IUserRepository, UserRepository>();
@@ -78,6 +88,7 @@ namespace FinalProject.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("policy");
 
             app.UseAuthorization();
 
