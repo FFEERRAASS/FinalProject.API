@@ -31,10 +31,10 @@ namespace FinalProject.API.Controllers
             categoryService.CREATECategory(document);
         }
 
-        [HttpPut("UPDATECategory/{id}")]
-        public void UPDATECategory(int id, Category document)
+        [HttpPut("UPDATECategory")]
+        public void UPDATECategory([FromBody] Category document)
         {
-            categoryService.UPDATECategory(id, document);
+            categoryService.UPDATECategory(document);
         }
 
         [HttpGet("GetCategoryById/{id}")]
@@ -54,7 +54,8 @@ namespace FinalProject.API.Controllers
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullpath = Path.Combine("D:\\Desktop\\Charity-platform\\src\\assets\\img", filename);
+            var fullpath = Path.Combine("C:\\Users\\Rahmani\\Desktop\\Charity-Team\\src\\assets\\img", filename);
+
             using (var stream = new FileStream(fullpath, FileMode.Create))
             {
                 file.CopyTo(stream);

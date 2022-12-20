@@ -54,15 +54,15 @@ namespace FinalProject.Infra.Repository
             return users.FirstOrDefault();
         }
 
-        public void UPDATECategory(int id, Category category)
+        public void UPDATECategory(Category category)
         {
             var p = new DynamicParameters();
 
-            p.Add("categoryID", category.Categoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("categoryNames", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("categoryImages", category.Categoryimage, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("category_descs", category.CategoryDesc, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("category_paragraphs", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("categoryID1", category.Categoryid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("categoryNames1", category.Categoryname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("categoryImages1", category.Categoryimage, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_descs1", category.CategoryDesc, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("category_paragraphs1", category.CategoryParagraph, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = dbContext.Connection.Execute("Category_P.UPDATECategory", p, commandType: CommandType.StoredProcedure);
 

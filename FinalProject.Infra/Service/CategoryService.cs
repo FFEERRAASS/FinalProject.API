@@ -34,9 +34,9 @@ namespace FinalProject.Infra.Service
             return categoryRepository.GetCategoryById(id);
         }
 
-        public void UPDATECategory(int id, Category category)
+        public void UPDATECategory( Category category)
         {
-            categoryRepository.UPDATECategory(id, category);    
+            categoryRepository.UPDATECategory( category);    
         }
     }
 }

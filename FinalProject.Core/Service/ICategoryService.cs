@@ -10,7 +10,7 @@ namespace FinalProject.Core.Service
     {
         List<Category> GetAllCategory();
         void CREATECategory(Category category);
-        void UPDATECategory(int id, Category category);
+        void UPDATECategory(Category category);
         Category GetCategoryById(int id);
         void DeleteCategory(int id);
     }
