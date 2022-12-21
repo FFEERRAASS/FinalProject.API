@@ -14,5 +14,7 @@ namespace FinalProject.Core.Data
         public decimal? Rate { get; set; }
 
         public virtual User UseridFkNavigation { get; set; }
+
+
     }
 }

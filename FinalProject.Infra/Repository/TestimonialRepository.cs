@@ -23,6 +23,11 @@ namespace FinalProject.Infra.Repository
             IEnumerable<Testimonial> users = dbContext.Connection.Query<Testimonial>("testimonial_p.GetAlltestimonial", commandType: CommandType.StoredProcedure);
             return users.ToList();
         }
+        public List<userTestimonialsDTO> getusertestimonial()
+        {
+            IEnumerable<userTestimonialsDTO> users = dbContext.Connection.Query<userTestimonialsDTO>("testimonial_p.GetAlltestimonial", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
 
         public void CREATEtestimonial(Testimonial testimonial)
         {
@@ -36,7 +41,7 @@ namespace FinalProject.Infra.Repository
 
         }
 
-        public void UPDATEtestimonial(int id, Testimonial testimonial)
+        public void UPDATEtestimonial(Testimonial testimonial)
         {
 
             var p = new DynamicParameters();

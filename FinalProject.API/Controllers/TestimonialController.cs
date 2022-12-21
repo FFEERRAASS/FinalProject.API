@@ -18,20 +18,28 @@ namespace FinalProject.API.Controllers
             this.testimonialService = _testimonialService;
         }
 
+
         [HttpGet("GetAlltestimonial")]
         public List<Testimonial> GetAlltestimonial()
         {
             return testimonialService.GetAlltestimonial();
+        }
+
+        [HttpGet("getusertestimonial")]
+
+        public List<userTestimonialsDTO> getusertestimonial()
+        {
+            return testimonialService.getusertestimonial();
         }
         [HttpPost("CREATEtestimonial")]
         public void CREATEtestimonial(Testimonial testimonial)
         {
             testimonialService.CREATEtestimonial(testimonial);
         }
-        [HttpPut("UPDATEtestimonial/{id}")]
-        public void UPDATEtestimonial(int id, Testimonial testimonial)
+        [HttpPut("UPDATEtestimonial")]
+        public void UPDATEtestimonial([FromBody] Testimonial testimonial)
         {
-            testimonialService.UPDATEtestimonial(id, testimonial);
+            testimonialService.UPDATEtestimonial(testimonial);
         }
         [HttpGet("GettestimonialtById/{id}")]
         public Testimonial GettestimonialtById(int id)

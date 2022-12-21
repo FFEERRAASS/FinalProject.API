@@ -9,8 +9,9 @@ namespace FinalProject.Core.Repository
     {
         List<Testimonial> GetAlltestimonial();
         void CREATEtestimonial(Testimonial testimonial);
-        void UPDATEtestimonial(int id, Testimonial testimonial);
+        void UPDATEtestimonial( Testimonial testimonial);
         Testimonial GettestimonialtById(int id);
         void Deletetestimonial(int id);
+        List<userTestimonialsDTO> getusertestimonial();
     }
 }
