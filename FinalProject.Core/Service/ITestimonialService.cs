@@ -13,6 +13,7 @@ namespace FinalProject.Core.Service
         Testimonial GettestimonialtById(int id);
         void Deletetestimonial(int id);
         List<userTestimonialsDTO> getusertestimonial();
+        List<userTestimonialsDTO> GetAlltestimonialAccepted();
 
     }
 }

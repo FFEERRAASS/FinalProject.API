@@ -24,6 +24,11 @@ namespace FinalProject.Infra.Service
         {
             return testimonialRepository.getusertestimonial();
         }
+        public List<userTestimonialsDTO> GetAlltestimonialAccepted()
+        {
+            return testimonialRepository.GetAlltestimonialAccepted();
+
+        }
         public void CREATEtestimonial(Testimonial testimonial)
         {
             testimonialRepository.CREATEtestimonial(testimonial);

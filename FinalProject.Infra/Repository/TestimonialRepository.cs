@@ -28,6 +28,11 @@ namespace FinalProject.Infra.Repository
             IEnumerable<userTestimonialsDTO> users = dbContext.Connection.Query<userTestimonialsDTO>("testimonial_p.GetAlltestimonial", commandType: CommandType.StoredProcedure);
             return users.ToList();
         }
+       public List<userTestimonialsDTO> GetAlltestimonialAccepted()
+        {
+            IEnumerable<userTestimonialsDTO> users = dbContext.Connection.Query<userTestimonialsDTO>("testimonial_p.GetAlltestimonialAccepted", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
 
         public void CREATEtestimonial(Testimonial testimonial)
         {

@@ -31,6 +31,13 @@ namespace FinalProject.API.Controllers
         {
             return testimonialService.getusertestimonial();
         }
+        [HttpGet("GetAlltestimonialAccepted")]
+
+        public List<userTestimonialsDTO> GetAlltestimonialAccepted()
+        {
+            return testimonialService.GetAlltestimonialAccepted();
+
+        }
         [HttpPost("CREATEtestimonial")]
         public void CREATEtestimonial(Testimonial testimonial)
         {
