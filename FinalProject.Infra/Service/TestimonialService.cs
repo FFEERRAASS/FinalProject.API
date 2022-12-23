@@ -19,13 +19,23 @@ namespace FinalProject.Infra.Service
         {
             return testimonialRepository.GetAlltestimonial();
         }
+        
+        public List<userTestimonialsDTO> getusertestimonial()
+        {
+            return testimonialRepository.getusertestimonial();
+        }
+        public List<userTestimonialsDTO> GetAlltestimonialAccepted()
+        {
+            return testimonialRepository.GetAlltestimonialAccepted();
+
+        }
         public void CREATEtestimonial(Testimonial testimonial)
         {
             testimonialRepository.CREATEtestimonial(testimonial);
         }
-        public void UPDATEtestimonial(int id, Testimonial testimonial)
+        public void UPDATEtestimonial(Testimonial testimonial)
         {
-            testimonialRepository.UPDATEtestimonial(id, testimonial);
+            testimonialRepository.UPDATEtestimonial(testimonial);
         }
         public Testimonial GettestimonialtById(int id)
         {

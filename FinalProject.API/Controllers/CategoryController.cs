@@ -31,10 +31,10 @@ namespace FinalProject.API.Controllers
             categoryService.CREATECategory(document);
         }
 
-        [HttpPut("UPDATECategory/{id}")]
-        public void UPDATECategory(int id, Category document)
+        [HttpPut("UPDATECategory")]
+        public void UPDATECategory([FromBody] Category document)
         {
-            categoryService.UPDATECategory(id, document);
+            categoryService.UPDATECategory(document);
         }
 
         [HttpGet("GetCategoryById/{id}")]
