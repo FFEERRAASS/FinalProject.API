@@ -4,6 +4,7 @@ using FinalProject.Core.Service;
 using FinalProject.Infra.Common;
 using FinalProject.Infra.Repository;
 using FinalProject.Infra.Service;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,9 +14,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FinalProject.API
@@ -32,7 +35,22 @@ namespace FinalProject.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(option =>
+                {
+                    option.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("CharityTeamCharity"))
+                    };
+                });
             services.AddCors(corsOptions => {
                 corsOptions.AddPolicy("policy",
                 builder => {
@@ -55,7 +73,7 @@ namespace FinalProject.API
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+           
 
             services.AddScoped<ICategoryService, CategoryService>();
 
@@ -65,7 +83,8 @@ namespace FinalProject.API
             services.AddScoped<IBankService, BankService>();
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<IHomeService, HomeService>();
-
+            services.AddScoped<IJWTRepository, JWTRepository>();
+            services.AddScoped<IJWTService, JWTService>();
             services.AddScoped<IAboutusRepository, AboutusRepository>();
             services.AddScoped<IAboutuService, AboutuService>();
 
@@ -91,7 +110,7 @@ namespace FinalProject.API
             app.UseCors("policy");
 
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
