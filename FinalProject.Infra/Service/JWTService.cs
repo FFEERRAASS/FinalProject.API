@@ -30,15 +30,9 @@ namespace FinalProject.Infra.Service
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,result.Username),
-                    new Claim(ClaimTypes.Name,result.Firstname),
-                    new Claim(ClaimTypes.Name, result.Lastname),
-                    new Claim(ClaimTypes.Name, result.Email),
-                    new Claim(ClaimTypes.Name, result.Phonenumber),
-                    new Claim(ClaimTypes.Name,result.RoleidFk.ToString()),
-                    new Claim(ClaimTypes.Name,result.Userid.ToString()),
-                    new Claim(ClaimTypes.Name,result.Gender.ToString()),
-                    new Claim(ClaimTypes.Name,result.Imagepath)
+                     new Claim(ClaimTypes.Name,result.Username),
+                     new Claim(ClaimTypes.Role,result.RoleidFk.ToString()),
+                     new Claim(ClaimTypes.NameIdentifier,result.Userid.ToString()),
 
                 };
                 var tokenOptions = new JwtSecurityToken
