@@ -15,6 +15,7 @@ namespace FinalProject.API.Controllers
             this.jWTService= jWTService;
         }
         [HttpPost]
+        [Route("login")]
         public IActionResult Auth([FromBody] User login)
         {
             var token = jWTService.Auth(login);
