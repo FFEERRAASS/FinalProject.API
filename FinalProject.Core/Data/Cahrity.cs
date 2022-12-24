@@ -11,6 +11,7 @@ namespace FinalProject.Core.Data
         {
             Documents = new HashSet<Document>();
         }
+        public string Doc { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; } 
         public string Username { get; set; }
