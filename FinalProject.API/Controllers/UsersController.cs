@@ -24,7 +24,7 @@ namespace FinalProject.API.Controllers
         }
         [HttpPost]
         [Route("CreateUser")] /////// fdsfdsf
-        public void CreateUser(User user)
+        public void CreateUser([FromBody]User user)
         {
             userService.CreateUser(user);
         }
