@@ -26,13 +26,13 @@ namespace FinalProject.Infra.Service
             }
             else
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("CharityTeamCharity"));
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("supersecretkey@321"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                 {
-                     new Claim(ClaimTypes.Name,result.Username),
-                     new Claim(ClaimTypes.Role,result.RoleidFk.ToString()),
-                     new Claim(ClaimTypes.NameIdentifier,result.Userid.ToString()),
+                     new Claim("Name",result.Username),
+                     new Claim("Role",result.RoleidFk.ToString()),
+                     new Claim("USERID",result.Userid.ToString()),
 
                 };
                 var tokenOptions = new JwtSecurityToken
