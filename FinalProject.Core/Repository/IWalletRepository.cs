@@ -13,6 +13,8 @@ namespace FinalProject.Core.Repository
         Wallet GetWalletById(int id);
         void DeleteWallets(int id);
 
+        
+
     }
 }
 

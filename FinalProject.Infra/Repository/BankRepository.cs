@@ -54,5 +54,19 @@ namespace FinalProject.Infra.Repository
             IEnumerable<Bankaccount> result = dbContext.Connection.Query<Bankaccount>("BankAccount_p.getaccountbyid", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
+
+        public Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname)
+        {
+            var p = new DynamicParameters();
+            p.Add("AccountNo", cardnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("exDate", expdate, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("cvvv", cvvv, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("fname", fullname, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Bankaccount> result = dbContext.Connection.Query<Bankaccount>("BankAccount_p.checkforcard", p, commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+
+        }
     }
 }

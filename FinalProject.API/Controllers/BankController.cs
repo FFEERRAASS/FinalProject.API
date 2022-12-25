@@ -2,6 +2,7 @@
 using FinalProject.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace FinalProject.API.Controllers
@@ -41,6 +42,13 @@ namespace FinalProject.API.Controllers
         public Bankaccount GetBankPageById(int id)
         {
             return bankService.GetBankPageById(id);
+        }
+
+        [HttpPost]
+        [Route("checkforcard")]
+        public Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname)
+        {
+            return bankService.checkforcard(cardnumber, expdate, cvvv, fullname);
         }
 
 
