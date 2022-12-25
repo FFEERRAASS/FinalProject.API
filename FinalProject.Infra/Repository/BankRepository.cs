@@ -55,13 +55,13 @@ namespace FinalProject.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        public Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname)
+        public Bankaccount checkforcard(Bankaccount card)
         {
             var p = new DynamicParameters();
-            p.Add("AccountNo", cardnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("exDate", expdate, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("cvvv", cvvv, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("fname", fullname, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("AccountNo", card.Accountnum, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("exDate", card.EXPIREDDATE, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("cvvv", card.CVV, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("fname", card.FULLNAME, dbType: DbType.String, direction: ParameterDirection.Input);
 
             IEnumerable<Bankaccount> result = dbContext.Connection.Query<Bankaccount>("BankAccount_p.checkforcard", p, commandType: CommandType.StoredProcedure);
 

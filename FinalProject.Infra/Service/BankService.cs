@@ -36,9 +36,9 @@ namespace FinalProject.Infra.Service
             return bank.GetBankPageById(id);
         }
 
-        public Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname)
+        public Bankaccount checkforcard(Bankaccount card)
         {
-            return bank.checkforcard(cardnumber, expdate, cvvv, fullname);
+            return bank.checkforcard(card);
         }
 
 

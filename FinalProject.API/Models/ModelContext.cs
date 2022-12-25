@@ -458,18 +458,18 @@ namespace FinalProject.API.Models
                     .IsUnicode(false)
                     .HasColumnName("PHONENUMBER");
 
-                entity.Property(e => e.RoleidFk)
+                entity.Property(e => e.Roleidfk)
                     .HasColumnType("NUMBER")
-                    .HasColumnName("ROLEID_FK");
+                    .HasColumnName("ROLEIDFK");
 
                 entity.Property(e => e.Username)
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("USERNAME");
 
-                entity.HasOne(d => d.RoleidFkNavigation)
+                entity.HasOne(d => d.RoleidfkNavigation)
                     .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.RoleidFk)
+                    .HasForeignKey(d => d.Roleidfk)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("ROLEID_FK");
             });

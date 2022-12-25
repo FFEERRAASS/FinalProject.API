@@ -13,7 +13,7 @@ namespace FinalProject.Core.Service
         void DeleteBank(int id);
         Bankaccount GetBankPageById(int id);
 
-        Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname);
+        public Bankaccount checkforcard(Bankaccount card);
 
     }
 }

@@ -26,9 +26,9 @@ namespace FinalProject.API.Models
         public string Phonenumber { get; set; }
         public string Imagepath { get; set; }
         public decimal? Isaccepted { get; set; }
-        public decimal? RoleidFk { get; set; }
+        public decimal? Roleidfk { get; set; }
 
-        public virtual Role RoleidFkNavigation { get; set; }
+        public virtual Role RoleidfkNavigation { get; set; }
         public virtual ICollection<Cahrity> Cahrities { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
         public virtual ICollection<Report> Reports { get; set; }

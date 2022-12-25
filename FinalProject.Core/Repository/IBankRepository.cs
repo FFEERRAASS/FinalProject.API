@@ -13,6 +13,6 @@ namespace FinalProject.Core.Repository
         void DeleteBank(int id);
         Bankaccount GetBankPageById(int id);
 
-        Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname);
+        Bankaccount checkforcard(Bankaccount card);
     }
 }

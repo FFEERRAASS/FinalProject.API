@@ -46,9 +46,9 @@ namespace FinalProject.API.Controllers
 
         [HttpPost]
         [Route("checkforcard")]
-        public Bankaccount checkforcard(string cardnumber, DateTime expdate, string cvvv, string fullname)
+        public Bankaccount checkforcard([FromBody]Bankaccount card)
         {
-            return bankService.checkforcard(cardnumber, expdate, cvvv, fullname);
+            return bankService.checkforcard(card);
         }
 
 
