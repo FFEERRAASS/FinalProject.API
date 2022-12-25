@@ -27,7 +27,7 @@ namespace FinalProject.API.Controllers
             bankService.CreateBank(bankaccount);
         }
         [HttpPut("UpdateBank")]
-        public void UpdateBank(Bankaccount bankaccount)
+        public void UpdateBank([FromBody] Bankaccount bankaccount)
         {
             bankService.UpdateBank(bankaccount);
         }
