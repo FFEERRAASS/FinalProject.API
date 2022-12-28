@@ -29,7 +29,8 @@ namespace FinalProject.Infra.Repository
 
             var p = new DynamicParameters();
             p.Add("userid_fk1", cahrity.UseridFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("docid_fk1", cahrity.DocidFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("CharityName1", cahrity.CHARITYNAME, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("docid_fk1", cahrity.DocidFk, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("imagePath1", cahrity.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("goal1", cahrity.Goal, dbType: DbType.Int64, direction: ParameterDirection.Input);
             p.Add("email1", cahrity.Email, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -49,8 +50,9 @@ namespace FinalProject.Infra.Repository
             var p = new DynamicParameters();
             p.Add("charityID1", cahrity.Charityid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("userid_fk1", cahrity.UseridFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("docid_fk1", cahrity.DocidFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("docid_fk1", cahrity.DocidFk, dbType: DbType.String, direction: ParameterDirection.Input);
 
+            p.Add("CharityName1", cahrity.CHARITYNAME, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("imagePath1", cahrity.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("goal1", cahrity.Goal, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("email1", cahrity.Email, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -77,7 +79,7 @@ namespace FinalProject.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("IcharityIDD1", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.getallcahrity", commandType: CommandType.StoredProcedure);
+            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.getcahritybyid",p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 
         }

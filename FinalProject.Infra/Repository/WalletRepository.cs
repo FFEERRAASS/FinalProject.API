@@ -59,6 +59,14 @@ PROCEDURE DeleteWallets(Id in number);*/
             return users.FirstOrDefault();
         }
 
+        public Wallet GetWalletByUserId(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Wallet> users = dbContext.Connection.Query<Wallet>("Wallets_P.GetWalletByUserId", p, commandType: CommandType.StoredProcedure);
+            return users.FirstOrDefault();
+        }
+
         public void UPDATEWallets(int id, Wallet wallet)
         {
 
@@ -73,5 +81,14 @@ PROCEDURE DeleteWallets(Id in number);*/
             var result = dbContext.Connection.Execute("Wallets_P.UPDATEWallets", p, commandType: CommandType.StoredProcedure);
 
         }
+
+        public void transfermoney(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.Execute("Wallets_trasferMoney_P.transfermoney", p, commandType: CommandType.StoredProcedure);
+
+        }
+
     }
 }

@@ -36,10 +36,21 @@ namespace FinalProject.API.Controllers
         {
             return this.walletService.GetWalletById(id);
         }
+
+        [HttpGet("GetWalletByUserId/{id}")]
+        public Wallet GetWalletByUserId(int id)
+        {
+            return this.walletService.GetWalletByUserId(id);
+        }
         [HttpDelete("DeleteWallets/{id}")]
         public void DeleteWallets(int id)
         {
             walletService.DeleteWallets(id);
+        }
+        [HttpGet("transfermoney/{id}")]
+        public void transfermoney(int id)
+        {
+            walletService.transfermoney(id);
         }
     }
 }

@@ -33,11 +33,20 @@ namespace FinalProject.Infra.Service
         public Wallet GetWalletById(int id)
         {
            return walletRepository.GetWalletById(id);
+        }     
+        public Wallet GetWalletByUserId(int id)
+        {
+           return walletRepository.GetWalletByUserId(id);
         }
 
         public void UPDATEWallets(int id, Wallet wallet)
         {
            walletRepository.UPDATEWallets(id, wallet);  
+        }
+
+        public void transfermoney(int id)
+        {
+            walletRepository.transfermoney(id);
         }
     }
 }

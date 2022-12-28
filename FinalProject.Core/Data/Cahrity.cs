@@ -13,11 +13,12 @@ namespace FinalProject.Core.Data
         }
         public string Doc { get; set; }
         public string Firstname { get; set; }
-        public string Lastname { get; set; } 
-        public string Username { get; set; }
+        public string Lastname { get; set; }
+        public string CHARITYNAME { get; set; }
+        public string Username { get; set; } 
         public decimal Charityid { get; set; }
         public decimal? UseridFk { get; set; }
-        public decimal? DocidFk { get; set; }
+        public string DocidFk { get; set; }
         public string Imagepath { get; set; }
         public decimal? Goal { get; set; }
         public string Email { get; set; }
