@@ -51,5 +51,12 @@ namespace FinalProject.API.Controllers
         {
             return _charityService.GetcahrityById(id);
         }
+        [HttpGet]
+        [Route("GetcahrityByCategory/{id}")]
+        public List<Cahrity> GetcahrityByCategory(int id)
+        {
+            return _charityService.GetcahrityByCategory(id);
+        }
+
     }
 }
