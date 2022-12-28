@@ -39,5 +39,12 @@ namespace FinalProject.Infra.Service
         {
             return _charityRepository.GetcahrityById(id);
         }
+        public List<Cahrity> GetcahrityByCategory(int id)
+
+        {
+            return _charityRepository.GetcahrityByCategory(id);
+        }
+
+
     }
 }

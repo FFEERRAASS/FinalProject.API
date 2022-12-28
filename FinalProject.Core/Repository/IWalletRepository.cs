@@ -9,12 +9,16 @@ namespace FinalProject.Core.Repository
     {
         List<Wallet> GetAllWallets();
         void CREATEWallets(Wallet wallet);
-        void UPDATEWallets(int id, Wallet wallet);
+        void UPDATEWallets(Wallet wallet);
         Wallet GetWalletById(int id);
 
         Wallet GetWalletByUserId(int id);
         void DeleteWallets(int id);
         public void transfermoney(int id);
+
+        Wallet getwalletforuser(int id);
+
+
 
     }
 }

@@ -26,10 +26,10 @@ namespace FinalProject.API.Controllers
         {
             walletService.CREATEWallets(contactu);
         }
-        [HttpPut("UPDATEWallets/{id}")]
-        public void UPDATEWallets(int id, Wallet contactu)
+        [HttpPut("UPDATEWallets")]
+        public void UPDATEWallets([FromBody] Wallet contactu)
         {
-            walletService.UPDATEWallets(id, contactu);
+            walletService.UPDATEWallets(contactu);
         }
         [HttpGet("GetWalletById/{id}")]
         public Wallet GetWalletById(int id)
@@ -46,6 +46,13 @@ namespace FinalProject.API.Controllers
         public void DeleteWallets(int id)
         {
             walletService.DeleteWallets(id);
+        }
+        [HttpGet("getwalletforuser/{id}")]
+
+        public Wallet getwalletforuser(int id)
+        {
+            return walletService.getwalletforuser(id);
+
         }
         [HttpGet("transfermoney/{id}")]
         public void transfermoney(int id)

@@ -35,7 +35,12 @@ namespace FinalProject.Infra.Repository
             var p = new DynamicParameters();
             p.Add("id", bankaccount.Accountid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BalanceP", bankaccount.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("AccountNumP", bankaccount.Accountnum, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("AccountNo", bankaccount.Accountnum, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("cvvv", bankaccount.CVV, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("exDate", bankaccount.EXPIREDDATE, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("fname", bankaccount.FULLNAME, dbType: DbType.String, direction: ParameterDirection.Input);
+
+
             var result = dbContext.Connection.Execute("BankAccount_p.updateAccount", p, commandType: CommandType.StoredProcedure);
         }
         public void DeleteBank(int id)
@@ -53,6 +58,20 @@ namespace FinalProject.Infra.Repository
             p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Bankaccount> result = dbContext.Connection.Query<Bankaccount>("BankAccount_p.getaccountbyid", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+        }
+
+        public Bankaccount checkforcard(Bankaccount card)
+        {
+            var p = new DynamicParameters();
+            p.Add("AccountNo", card.Accountnum, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("exDate", card.EXPIREDDATE, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("cvvv", card.CVV, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("fname", card.FULLNAME, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            IEnumerable<Bankaccount> result = dbContext.Connection.Query<Bankaccount>("BankAccount_p.checkforcard", p, commandType: CommandType.StoredProcedure);
+
+            return result.FirstOrDefault();
+
         }
     }
 }

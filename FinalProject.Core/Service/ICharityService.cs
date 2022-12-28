@@ -12,5 +12,6 @@ namespace FinalProject.Core.Service
         public void Updatecahrity(Cahrity cahrity);
         public void DeleteCategory(int id);
         public Cahrity GetcahrityById(int id);
+        public List<Cahrity> GetcahrityByCategory(int id);
     }
 }

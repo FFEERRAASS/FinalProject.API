@@ -73,8 +73,6 @@ PROCEDURE DeleteWallets(Id in number);*/
             var p = new DynamicParameters();
 
             p.Add("ID", wallet.Walletid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-          
             p.Add("balances", wallet.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("userID_fks", wallet.UseridFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BankAccount_fks", wallet.BankaccountFk, dbType: DbType.Int32, direction: ParameterDirection.Input);

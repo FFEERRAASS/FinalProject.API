@@ -15,6 +15,9 @@ namespace FinalProject.Core.Data
         public decimal Accountid { get; set; }
         public decimal? Balance { get; set; }
         public string Accountnum { get; set; }
+        public DateTime? EXPIREDDATE { get; set; }
+        public string FULLNAME { get; set; }
+        public string CVV { get; set; }
 
         public virtual ICollection<Wallet> Wallets { get; set; }
     }

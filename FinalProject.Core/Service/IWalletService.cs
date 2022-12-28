@@ -9,10 +9,13 @@ namespace FinalProject.Core.Service
     {
         List<Wallet> GetAllWallets();
         void CREATEWallets(Wallet wallet);
-        void UPDATEWallets(int id, Wallet wallet);
+        void UPDATEWallets(Wallet wallet);
         Wallet GetWalletById(int id);
         Wallet GetWalletByUserId(int id);
         public void transfermoney(int id);
         void DeleteWallets(int id);
+
+        Wallet getwalletforuser(int id);
+        
     }
 }

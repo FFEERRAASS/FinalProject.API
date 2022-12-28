@@ -36,6 +36,12 @@ namespace FinalProject.Infra.Service
             return bank.GetBankPageById(id);
         }
 
+        public Bankaccount checkforcard(Bankaccount card)
+        {
+            return bank.checkforcard(card);
+        }
+
+
 
 
     }

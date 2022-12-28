@@ -12,5 +12,8 @@ namespace FinalProject.Core.Service
         void UpdateBank(Bankaccount bankaccount);
         void DeleteBank(int id);
         Bankaccount GetBankPageById(int id);
+
+        public Bankaccount checkforcard(Bankaccount card);
+
     }
 }

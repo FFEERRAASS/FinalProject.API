@@ -2,6 +2,7 @@
 using FinalProject.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace FinalProject.API.Controllers
@@ -26,7 +27,7 @@ namespace FinalProject.API.Controllers
             bankService.CreateBank(bankaccount);
         }
         [HttpPut("UpdateBank")]
-        public void UpdateBank(Bankaccount bankaccount)
+        public void UpdateBank([FromBody] Bankaccount bankaccount)
         {
             bankService.UpdateBank(bankaccount);
         }
@@ -41,6 +42,13 @@ namespace FinalProject.API.Controllers
         public Bankaccount GetBankPageById(int id)
         {
             return bankService.GetBankPageById(id);
+        }
+
+        [HttpPost]
+        [Route("checkforcard")]
+        public Bankaccount checkforcard([FromBody]Bankaccount card)
+        {
+            return bankService.checkforcard(card);
         }
 
 
