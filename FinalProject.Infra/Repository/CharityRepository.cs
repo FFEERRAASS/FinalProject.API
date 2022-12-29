@@ -79,7 +79,7 @@ namespace FinalProject.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("IcharityIDD1", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.getallcahrity",p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.GetcahrityById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 
         }
@@ -92,6 +92,30 @@ namespace FinalProject.Infra.Repository
             return result.ToList();
 
         }
+        public List<CharityDTO> getAllCharityDto(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CharityDTO> result = _dbContext.Connection.Query<CharityDTO>("cahrity_P.getCharityDTO", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
+
+        public Cahrity GetCharityProfile(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.GetCharityProfile", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+
+        }
+        public void UpdateBalanceCharity(Cahrity cahrity)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", cahrity.Charityid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("balance1", cahrity.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Execute("cahrity_P.updateBalanceCharity", p, commandType: CommandType.StoredProcedure);
+
+        }
     }
 }

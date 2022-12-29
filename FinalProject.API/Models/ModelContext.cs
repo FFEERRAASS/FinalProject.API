@@ -133,8 +133,14 @@ namespace FinalProject.API.Models
                     .HasColumnType("NUMBER")
                     .HasColumnName("CATEGORYID_FK");
 
+                entity.Property(e => e.Charityname)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("CHARITYNAME");
+
                 entity.Property(e => e.DocidFk)
-                    .HasColumnType("NUMBER")
+                    .HasMaxLength(150)
+                    .IsUnicode(false)
                     .HasColumnName("DOCID_FK");
 
                 entity.Property(e => e.Email)

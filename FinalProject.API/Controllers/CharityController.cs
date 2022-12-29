@@ -57,6 +57,24 @@ namespace FinalProject.API.Controllers
         {
             return _charityService.GetcahrityByCategory(id);
         }
+        [HttpGet]
+        [Route("getAllCharityDto/{id}")]
+        public List<CharityDTO> getAllCharityDto(int id)
+        {
+            return _charityService.getAllCharityDto(id);
+        }
+        [HttpGet]
+        [Route("getCharityProfile/{id}")]
+        public Cahrity GetCharityProfile(int id)
+        {
+            return _charityService.GetCharityProfile(id);
+        }
+        [HttpPut]
+        [Route("UpdateBalanceCharity")]
+        public void UpdateBalanceCharity([FromBody] Cahrity cahrity)
+        {
+            _charityService.UpdateBalanceCharity(cahrity);
+        }
 
     }
 }
