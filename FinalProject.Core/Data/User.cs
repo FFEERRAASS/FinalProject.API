@@ -32,5 +32,9 @@ namespace FinalProject.Core.Data
         public virtual ICollection<Document> Documents { get; set; }
         public virtual ICollection<Testimonial> Testimonials { get; set; }
         public virtual ICollection<Wallet> Wallets { get; set; }
+        public virtual ICollection<Report> Reports { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
+
+
     }
 }

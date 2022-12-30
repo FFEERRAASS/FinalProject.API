@@ -10,6 +10,7 @@ namespace FinalProject.API.Models
         public Cahrity()
         {
             Documents = new HashSet<Document>();
+            Donations = new HashSet<Donation>();
         }
 
         public decimal Charityid { get; set; }
@@ -28,5 +29,6 @@ namespace FinalProject.API.Models
         public virtual Category CategoryidFkNavigation { get; set; }
         public virtual User UseridFkNavigation { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
     }
 }

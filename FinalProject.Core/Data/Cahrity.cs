@@ -31,5 +31,6 @@ namespace FinalProject.Core.Data
         public virtual Category CategoryidFkNavigation { get; set; }
         public virtual User UseridFkNavigation { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
     }
 }
