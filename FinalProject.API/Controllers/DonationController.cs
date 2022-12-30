@@ -23,7 +23,7 @@ namespace FinalProject.API.Controllers
         }
         [HttpPost]
         [Route("CreateDonation")]
-        public void CreateDonation(Donation donation)
+        public void CreateDonation([FromBody]Donation donation)
         {
             donationService.CreateDonation(donation);
         }
