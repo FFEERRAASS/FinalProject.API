@@ -28,9 +28,14 @@ namespace FinalProject.Infra.Service
         {
             donationRepository.UpdateDonation(donation);
         }
-        List<DonationDto> GetDonationByuserId(int id)
+        public List<DonationDto> GetDonationByuserId(int id)
         {
             return donationRepository.GetDonationByuserId(id);
         }
+        public void DeleteDonation(int id)
+        {
+            donationRepository.DeleteDonation(id);
+        }
+
     }
 }

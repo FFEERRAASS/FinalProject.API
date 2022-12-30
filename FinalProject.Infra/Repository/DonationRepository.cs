@@ -47,7 +47,7 @@ namespace FinalProject.Infra.Repository
             p.Add("charityfkk", donation.Charityfk, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("userfkk", donation.Userfk, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("DateDon", donation.Datedonation, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("id", donation.Donationid, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("id", donation.Donationid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("Donation_p.updateDonation", p, commandType: CommandType.StoredProcedure);
 
 
