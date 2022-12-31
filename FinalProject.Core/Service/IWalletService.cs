@@ -16,6 +16,7 @@ namespace FinalProject.Core.Service
         void DeleteWallets(int id);
         Wallet getwalletforuser(int id);
 
+        WalletDto getWalletAndBank(int id);
 
 
     }

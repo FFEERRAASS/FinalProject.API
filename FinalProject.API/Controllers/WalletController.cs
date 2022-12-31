@@ -61,5 +61,11 @@ namespace FinalProject.API.Controllers
         {
             walletService.transfermoney(id);
         }
+        [HttpGet("getwalletandbank/{id}")]
+        public WalletDto getWalletAndBank(int id)
+        {
+            return walletService.getWalletAndBank(id);
+        }
+
     }
 }

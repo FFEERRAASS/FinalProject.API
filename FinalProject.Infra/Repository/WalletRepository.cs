@@ -96,6 +96,14 @@ PROCEDURE DeleteWallets(Id in number);*/
             var result = dbContext.Connection.Execute("Wallets_trasferMoney_P.transfermoney", p, commandType: CommandType.StoredProcedure);
 
         }
+        public WalletDto getWalletAndBank(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<WalletDto> users = dbContext.Connection.Query<WalletDto>("Wallets_P.getWalletandBank", p, commandType: CommandType.StoredProcedure);
+            return users.FirstOrDefault();
+        }
+
 
     }
 }

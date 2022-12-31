@@ -54,5 +54,10 @@ namespace FinalProject.Infra.Service
             return walletRepository.getwalletforuser(id);
 
         }
+        public WalletDto getWalletAndBank(int id)
+        {
+            return walletRepository.getWalletAndBank(id);
+        }
+
     }
 }
