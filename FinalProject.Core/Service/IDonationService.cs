@@ -12,6 +12,8 @@ namespace FinalProject.Core.Service
         public void UpdateDonation(Donation donation);
         public List<DonationDto> GetDonationByuserId(int id);
         public void DeleteDonation(int id);
+        public CountUser GetDonationCount();
+
 
 
 

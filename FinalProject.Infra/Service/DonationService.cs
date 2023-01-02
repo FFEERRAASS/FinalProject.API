@@ -36,6 +36,10 @@ namespace FinalProject.Infra.Service
         {
             donationRepository.DeleteDonation(id);
         }
+        public CountUser GetDonationCount()
+        {
+            return donationRepository.GetDonationCount();
+        }
 
     }
 }

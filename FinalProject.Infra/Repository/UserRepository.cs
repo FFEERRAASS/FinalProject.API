@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using FinalProject.Infra.Common;
 using Dapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Infra.Repository
 {
@@ -23,6 +24,19 @@ namespace FinalProject.Infra.Repository
             IEnumerable<User> users = dbContext.Connection.Query<User>("User_P.GetAllUsers",commandType: CommandType.StoredProcedure);
             return users.ToList();
         }
+        public Countbenefichary GetbeneficharyCount()
+        {
+            IEnumerable<Countbenefichary> donation = dbContext.Connection.Query<Countbenefichary>("User_P.getCountbeneficary", commandType: CommandType.StoredProcedure);
+            return donation.SingleOrDefault();
+        }
+        public allusercount getCountusers()
+        {
+            IEnumerable<allusercount> donation = dbContext.Connection.Query<allusercount>("User_P.getCountusers", commandType: CommandType.StoredProcedure);
+            return donation.SingleOrDefault();
+        }
+    
+
+
         public void CreateUser(User user)
         {
             var p = new DynamicParameters();

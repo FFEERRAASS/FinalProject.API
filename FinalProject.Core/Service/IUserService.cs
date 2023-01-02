@@ -12,5 +12,8 @@ namespace FinalProject.Core.Service
         public void UpdateUser( User user);
         User UserGetUserById(int id);
         public void DeleteUser(int id);
+        public Countbenefichary GetbeneficharyCount();
+        public allusercount getCountusers();
+
     }
 }
