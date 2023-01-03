@@ -11,6 +11,7 @@ namespace FinalProject.API.Models
         {
             Cahrities = new HashSet<Cahrity>();
             Documents = new HashSet<Document>();
+            Donations = new HashSet<Donation>();
             Reports = new HashSet<Report>();
             Testimonials = new HashSet<Testimonial>();
             Wallets = new HashSet<Wallet>();
@@ -31,6 +32,7 @@ namespace FinalProject.API.Models
         public virtual Role RoleidfkNavigation { get; set; }
         public virtual ICollection<Cahrity> Cahrities { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
         public virtual ICollection<Report> Reports { get; set; }
         public virtual ICollection<Testimonial> Testimonials { get; set; }
         public virtual ICollection<Wallet> Wallets { get; set; }

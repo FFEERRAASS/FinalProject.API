@@ -1,5 +1,6 @@
 ﻿using FinalProject.Core.Data;
 using FinalProject.Core.Service;
+using FinalProject.Infra.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,17 @@ namespace FinalProject.API.Controllers
         {
             return userService.GetAllUsers();
         }
+        [HttpGet("GetbeneficharyCount")]
+        public Countbenefichary GetbeneficharyCount()
+        {
+            return userService.GetbeneficharyCount();
+        }
+        [HttpGet("getCountusers")]
+        public allusercount getCountusers()
+        {
+            return userService.getCountusers();
+        }
+
         [HttpPost]
         [Route("CreateUser")] 
         public void CreateUser([FromBody]User user)

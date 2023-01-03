@@ -35,6 +35,14 @@ namespace FinalProject.Infra.Service
             userRepository.DeleteUser(id);
         }
 
+        public Countbenefichary GetbeneficharyCount()
+        {
+            return userRepository.GetbeneficharyCount();
+        }
+        public allusercount getCountusers()
+        {
+            return userRepository.getCountusers();
+        }
 
     }
 }

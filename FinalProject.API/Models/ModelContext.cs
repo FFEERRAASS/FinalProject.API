@@ -23,6 +23,7 @@ namespace FinalProject.API.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contactu> Contactus { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<Homepage> Homepages { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
@@ -133,8 +134,14 @@ namespace FinalProject.API.Models
                     .HasColumnType("NUMBER")
                     .HasColumnName("CATEGORYID_FK");
 
+                entity.Property(e => e.Charityname)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("CHARITYNAME");
+
                 entity.Property(e => e.DocidFk)
-                    .HasColumnType("NUMBER")
+                    .HasMaxLength(150)
+                    .IsUnicode(false)
                     .HasColumnName("DOCID_FK");
 
                 entity.Property(e => e.Email)
@@ -284,6 +291,44 @@ namespace FinalProject.API.Models
                     .HasForeignKey(d => d.UseridFk)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("USERID_FK2");
+            });
+
+            modelBuilder.Entity<Donation>(entity =>
+            {
+                entity.ToTable("DONATION");
+
+                entity.Property(e => e.Donationid)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("DONATIONID");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("AMOUNT");
+
+                entity.Property(e => e.Charityfk)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("CHARITYFK");
+
+                entity.Property(e => e.Datedonation)
+                    .HasColumnType("DATE")
+                    .HasColumnName("DATEDONATION");
+
+                entity.Property(e => e.Userfk)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("USERFK");
+
+                entity.HasOne(d => d.CharityfkNavigation)
+                    .WithMany(p => p.Donations)
+                    .HasForeignKey(d => d.Charityfk)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_CHARITY11");
+
+                entity.HasOne(d => d.UserfkNavigation)
+                    .WithMany(p => p.Donations)
+                    .HasForeignKey(d => d.Userfk)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_USER11");
             });
 
             modelBuilder.Entity<Homepage>(entity =>

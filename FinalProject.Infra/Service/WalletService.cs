@@ -43,15 +43,21 @@ namespace FinalProject.Infra.Service
         {
            walletRepository.UPDATEWallets( wallet);  
         }
-        public Wallet getwalletforuser(int id)
-        {
-            return walletRepository.getwalletforuser(id);
-
-        }
+    
 
         public void transfermoney(int id)
         {
             walletRepository.transfermoney(id);
         }
+        public Wallet getwalletforuser(int id)
+        {
+            return walletRepository.getwalletforuser(id);
+
+        }
+        public WalletDto getWalletAndBank(int id)
+        {
+            return walletRepository.getWalletAndBank(id);
+        }
+
     }
 }

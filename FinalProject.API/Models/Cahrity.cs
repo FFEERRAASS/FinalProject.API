@@ -10,11 +10,12 @@ namespace FinalProject.API.Models
         public Cahrity()
         {
             Documents = new HashSet<Document>();
+            Donations = new HashSet<Donation>();
         }
 
         public decimal Charityid { get; set; }
         public decimal? UseridFk { get; set; }
-        public decimal? DocidFk { get; set; }
+        public string DocidFk { get; set; }
         public string Imagepath { get; set; }
         public decimal? Goal { get; set; }
         public string Email { get; set; }
@@ -23,9 +24,11 @@ namespace FinalProject.API.Models
         public decimal? Isaccepted { get; set; }
         public decimal? CategoryidFk { get; set; }
         public decimal? State { get; set; }
+        public string Charityname { get; set; }
 
         public virtual Category CategoryidFkNavigation { get; set; }
         public virtual User UseridFkNavigation { get; set; }
         public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<Donation> Donations { get; set; }
     }
 }

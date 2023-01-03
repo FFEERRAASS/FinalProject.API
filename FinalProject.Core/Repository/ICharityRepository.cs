@@ -13,5 +13,10 @@ namespace FinalProject.Core.Repository
         public void DeleteCategory(int id);
         public Cahrity GetcahrityById(int id);
         List<Cahrity> GetcahrityByCategory(int id);
+        List<CharityDTO> getAllCharityDto(int id);
+        public Cahrity GetCharityProfile(int id);
+        void UpdateBalanceCharity(Cahrity cahrity);
+        List<Cahrity> GetAllcahrityAccepted();
+
     }
 }

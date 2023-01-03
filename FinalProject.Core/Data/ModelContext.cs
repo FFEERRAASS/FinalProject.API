@@ -1,10 +1,11 @@
 ﻿using System;
+using FinalProject.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace FinalProject.Core.Data
+namespace FinalProject.API.Models
 {
     public partial class ModelContext : DbContext
     {
@@ -23,7 +24,9 @@ namespace FinalProject.Core.Data
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Contactu> Contactus { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<Homepage> Homepages { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Testimonial> Testimonials { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -34,7 +37,7 @@ namespace FinalProject.Core.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseOracle("USER ID=JOR_FP2;PASSWORD=Test321;DATA SOURCE=94.56.229.181:3488/traindb");
+                optionsBuilder.UseOracle("USER ID=JOR_FP2;PASSWORD=Test321;DATA SOURCE= 94.56.229.181:3488/traindb");
             }
         }
 
@@ -96,6 +99,20 @@ namespace FinalProject.Core.Data
                 entity.Property(e => e.Balance)
                     .HasColumnType("NUMBER")
                     .HasColumnName("BALANCE");
+
+                entity.Property(e => e.CVV)
+                    .HasMaxLength(5)
+                    .IsUnicode(false)
+                    .HasColumnName("CVV");
+
+                entity.Property(e => e.EXPIREDDATE)
+                    .HasColumnType("DATE")
+                    .HasColumnName("EXPIREDDATE");
+
+                entity.Property(e => e.FULLNAME)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FULLNAME");
             });
 
             modelBuilder.Entity<Cahrity>(entity =>
@@ -118,8 +135,14 @@ namespace FinalProject.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("CATEGORYID_FK");
 
+                entity.Property(e => e.CHARITYNAME)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("CHARITYNAME");
+
                 entity.Property(e => e.DocidFk)
-                    .HasColumnType("NUMBER")
+                    .HasMaxLength(150)
+                    .IsUnicode(false)
                     .HasColumnName("DOCID_FK");
 
                 entity.Property(e => e.Email)
@@ -271,6 +294,44 @@ namespace FinalProject.Core.Data
                     .HasConstraintName("USERID_FK2");
             });
 
+            modelBuilder.Entity<Donation>(entity =>
+            {
+                entity.ToTable("DONATION");
+
+                entity.Property(e => e.Donationid)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("DONATIONID");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("AMOUNT");
+
+                entity.Property(e => e.Charityfk)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("CHARITYFK");
+
+                entity.Property(e => e.Datedonation)
+                    .HasColumnType("DATE")
+                    .HasColumnName("DATEDONATION");
+
+                entity.Property(e => e.Userfk)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("USERFK");
+
+                entity.HasOne(d => d.CharityfkNavigation)
+                    .WithMany(p => p.Donations)
+                    .HasForeignKey(d => d.Charityfk)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_CHARITY11");
+
+                entity.HasOne(d => d.UserfkNavigation)
+                    .WithMany(p => p.Donations)
+                    .HasForeignKey(d => d.Userfk)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("FK_USER11");
+            });
+
             modelBuilder.Entity<Homepage>(entity =>
             {
                 entity.HasKey(e => e.Homeid)
@@ -302,6 +363,49 @@ namespace FinalProject.Core.Data
                     .HasMaxLength(455)
                     .IsUnicode(false)
                     .HasColumnName("PARAGHRAPH2");
+            });
+
+            modelBuilder.Entity<Report>(entity =>
+            {
+                entity.ToTable("REPORT");
+
+                entity.Property(e => e.Reportid)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("REPORTID");
+
+                entity.Property(e => e.Dateofreport)
+                    .HasColumnType("DATE")
+                    .HasColumnName("DATEOFREPORT");
+
+                entity.Property(e => e.Numberofbenificiaries)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("NUMBEROFBENIFICIARIES");
+
+                entity.Property(e => e.Numberofdonations)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("NUMBEROFDONATIONS");
+
+                entity.Property(e => e.Numberofdoners)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("NUMBEROFDONERS");
+
+                entity.Property(e => e.Totaldonations)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("TOTALDONATIONS");
+
+                entity.Property(e => e.Totalusers)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("TOTALUSERS");
+
+                entity.Property(e => e.UseridFk)
+                    .HasColumnType("NUMBER")
+                    .HasColumnName("USERID_FK");
+
+                entity.HasOne(d => d.UseridFkNavigation)
+                    .WithMany(p => p.Reports)
+                    .HasForeignKey(d => d.UseridFk)
+                    .HasConstraintName("USERID_FKKK");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -372,7 +476,7 @@ namespace FinalProject.Core.Data
                     .HasColumnName("FIRSTNAME");
 
                 entity.Property(e => e.Gender)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("GENDER");
 
@@ -402,7 +506,7 @@ namespace FinalProject.Core.Data
 
                 entity.Property(e => e.RoleidFk)
                     .HasColumnType("NUMBER")
-                    .HasColumnName("ROLEID_FK");
+                    .HasColumnName("ROLEIDFK");
 
                 entity.Property(e => e.Username)
                     .HasMaxLength(255)

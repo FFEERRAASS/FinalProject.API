@@ -44,6 +44,22 @@ namespace FinalProject.Infra.Service
         {
             return _charityRepository.GetcahrityByCategory(id);
         }
+        public List<CharityDTO> getAllCharityDto(int id)
+        {
+            return _charityRepository.getAllCharityDto(id);
+        }
+        public Cahrity GetCharityProfile(int id)
+        {
+            return _charityRepository.GetCharityProfile(id);
+        }
+        public void UpdateBalanceCharity(Cahrity cahrity)
+        {
+            _charityRepository.UpdateBalanceCharity(cahrity);
+        }
+        public List<Cahrity> GetAllcahrityAccepted()
+        {
+            return _charityRepository.GetAllcahrityAccepted();
+        }
 
 
     }
