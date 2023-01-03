@@ -16,6 +16,8 @@ namespace FinalProject.Core.Service
         List<CharityDTO> getAllCharityDto(int id);
         public Cahrity GetCharityProfile(int id);
         void UpdateBalanceCharity(Cahrity cahrity);
+        List<Cahrity> GetAllcahrityAccepted();
+
 
 
     }

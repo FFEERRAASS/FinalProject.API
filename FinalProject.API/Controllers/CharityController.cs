@@ -75,6 +75,12 @@ namespace FinalProject.API.Controllers
         {
             _charityService.UpdateBalanceCharity(cahrity);
         }
+        [HttpGet]
+        [Route("GetAllcahrityAccepted")]
+        public List<Cahrity> GetAllcahrityAccepted()
+        {
+            return _charityService.GetAllcahrityAccepted();
+        }
 
     }
 }

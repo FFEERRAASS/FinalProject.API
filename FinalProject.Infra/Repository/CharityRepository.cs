@@ -23,6 +23,11 @@ namespace FinalProject.Infra.Repository
               IEnumerable<Cahrity> users = _dbContext.Connection.Query<Cahrity>("cahrity_P.getallcahrity", commandType: CommandType.StoredProcedure);
             return users.ToList();
         }
+        public List<Cahrity> GetAllcahrityAccepted()
+        {
+            IEnumerable<Cahrity> users = _dbContext.Connection.Query<Cahrity>("cahrity_P.getAllCharityAccepted", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
 
         public void Createcahrity(Cahrity cahrity)
         {

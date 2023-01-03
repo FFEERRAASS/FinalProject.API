@@ -56,6 +56,10 @@ namespace FinalProject.Infra.Service
         {
             _charityRepository.UpdateBalanceCharity(cahrity);
         }
+        public List<Cahrity> GetAllcahrityAccepted()
+        {
+            return _charityRepository.GetAllcahrityAccepted();
+        }
 
 
     }
