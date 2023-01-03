@@ -79,7 +79,7 @@ namespace FinalProject.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("IcharityIDD1", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.getallcahrity",p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Cahrity> result = _dbContext.Connection.Query<Cahrity>("cahrity_P.GetcahrityById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 
         }
