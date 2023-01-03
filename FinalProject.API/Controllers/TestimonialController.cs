@@ -18,6 +18,12 @@ namespace FinalProject.API.Controllers
             this.testimonialService = _testimonialService;
         }
 
+        [HttpGet]
+        [Route("ReturnLastthreeAccepted")]
+        public List<userTestimonialsDTO> ReturnLastthreeAccepted()
+        {
+            return testimonialService.ReturnLastthreeAccepted();
+        }
 
         [HttpGet("GetAlltestimonial")]
         public List<Testimonial> GetAlltestimonial()

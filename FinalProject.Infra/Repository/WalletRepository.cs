@@ -106,26 +106,7 @@ PROCEDURE DeleteWallets(Id in number);*/
 
 
 
-        public Wallet getwalletforuser(int id)
-        {
-            var p = new DynamicParameters();
-            p.Add("useridw", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-            IEnumerable<Wallet> users = dbContext.Connection.Query<Wallet>("Wallets_P.getwalletforuser", p, commandType: CommandType.StoredProcedure);
-            return users.FirstOrDefault();
-
-        }
-        public void UPDATEWallets(Wallet wallet)
-        {
-
-            var p = new DynamicParameters();
-
-            p.Add("ID", wallet.Walletid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("balances", wallet.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("userID_fks", wallet.UseridFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("BankAccount_fks", wallet.BankaccountFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dbContext.Connection.Execute("Wallets_P.UPDATEWallets", p, commandType: CommandType.StoredProcedure);
-
-        }
+       
+       
     }
 }
