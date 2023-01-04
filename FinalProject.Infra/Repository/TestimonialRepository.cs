@@ -17,7 +17,11 @@ namespace FinalProject.Infra.Repository
         {
             this.dbContext = dbContext;
         }
-
+        public List<userTestimonialsDTO> ReturnLastthreeAccepted()
+        {
+            IEnumerable<userTestimonialsDTO> users = dbContext.Connection.Query<userTestimonialsDTO>("testimonial_p.ReturnLastthreeAccepted", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
         public List<Testimonial> GetAlltestimonial()
         {
             IEnumerable<Testimonial> users = dbContext.Connection.Query<Testimonial>("testimonial_p.GetAlltestimonial", commandType: CommandType.StoredProcedure);

@@ -15,5 +15,6 @@ namespace FinalProject.Core.Repository
         List<userTestimonialsDTO> getusertestimonial();
 
         List<userTestimonialsDTO> GetAlltestimonialAccepted();
+        List<userTestimonialsDTO> ReturnLastthreeAccepted();
     }
 }
