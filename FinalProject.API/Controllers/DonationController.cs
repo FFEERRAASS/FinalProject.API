@@ -2,6 +2,7 @@
 using FinalProject.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace FinalProject.API.Controllers
@@ -53,6 +54,14 @@ namespace FinalProject.API.Controllers
         {
             donationService.DeleteDonation(id);
         }
+
+        [HttpGet]
+        [Route("searchfordonations")]
+        public List<DonationDto> searchfordonations([FromBody]searchdateDTO datess)
+        {
+            return donationService.searchfordonations(datess);
+        }
+
 
     }
 }
