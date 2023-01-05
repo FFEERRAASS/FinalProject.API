@@ -14,6 +14,7 @@ namespace FinalProject.Core.Service
         void Deletetestimonial(int id);
         List<userTestimonialsDTO> getusertestimonial();
         List<userTestimonialsDTO> GetAlltestimonialAccepted();
+        List<userTestimonialsDTO> ReturnLastthreeAccepted();
 
     }
 }

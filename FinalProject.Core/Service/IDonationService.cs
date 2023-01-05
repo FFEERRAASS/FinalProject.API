@@ -13,6 +13,7 @@ namespace FinalProject.Core.Service
         public List<DonationDto> GetDonationByuserId(int id);
         public void DeleteDonation(int id);
         public CountUser GetDonationCount();
+        public List<DonationDto> searchfordonations(searchdateDTO datess);
 
 
 

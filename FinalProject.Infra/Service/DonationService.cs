@@ -40,6 +40,9 @@ namespace FinalProject.Infra.Service
         {
             return donationRepository.GetDonationCount();
         }
-
+        public List<DonationDto> searchfordonations(searchdateDTO datess)
+        {
+            return donationRepository.searchfordonations(datess);
+        }
     }
 }

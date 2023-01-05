@@ -17,7 +17,7 @@ namespace FinalProject.API.Controllers
         }
 
         [HttpGet("GetAllWallets")]
-        public List<Wallet> GetAllcontactus()
+        public List<Wallet> GetAllWallets()
         {
             return this.walletService.GetAllWallets();
         }

@@ -14,5 +14,7 @@ namespace FinalProject.Core.Repository
         public void DeleteDonation(int id);
         public CountUser GetDonationCount();
 
+        public List<DonationDto> searchfordonations(searchdateDTO datess);
+
     }
 }

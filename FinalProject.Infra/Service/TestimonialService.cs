@@ -45,5 +45,9 @@ namespace FinalProject.Infra.Service
         {
             testimonialRepository.Deletetestimonial(id);
         }
+        public List<userTestimonialsDTO> ReturnLastthreeAccepted()
+        {
+            return testimonialRepository.ReturnLastthreeAccepted();
+        }
     }
 }

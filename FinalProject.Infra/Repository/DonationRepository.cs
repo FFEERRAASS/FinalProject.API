@@ -67,6 +67,17 @@ namespace FinalProject.Infra.Repository
 
         }
 
+        public List<DonationDto> searchfordonations(searchdateDTO datess)
+        {
+            var p = new DynamicParameters();
+            p.Add("DateDon1", datess.date1, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("DateDon2", datess.date2, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            IEnumerable<DonationDto> donation = _dbContext.Connection.Query<DonationDto>("Donation_p.searchfordonations",p, commandType: CommandType.StoredProcedure);
+            return donation.ToList();
+
+
+        }
+
 
 
 
