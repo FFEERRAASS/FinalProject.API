@@ -68,6 +68,7 @@ namespace FinalProject.Infra.Repository
             p.Add("accepts", user.Isaccepted, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("rolee", user.RoleidFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("usname", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("requestMoney1", user.requestMoney, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.Execute("User_P.UpdateUser", p, commandType: CommandType.StoredProcedure);
         }
         public User UserGetUserById(int id)
