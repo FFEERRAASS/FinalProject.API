@@ -30,11 +30,11 @@ namespace FinalProject.Infra.Repository
             return donation.ToList();
 
         }
-        public CountUser GetDonationCount()
-        {
-            IEnumerable<CountUser> donation = _dbContext.Connection.Query<CountUser>("Donation_p.selectCountDonation", commandType: CommandType.StoredProcedure);
-            return donation.SingleOrDefault();
-        }
+        //public CountUser GetDonationCount()
+        //{
+
+        //    return donation.SingleOrDefault();
+        //}
 
         public void CreateDonation(Donation donation)
         {

@@ -17,6 +17,8 @@ namespace FinalProject.Core.Service
         Wallet getwalletforuser(int id);
 
         WalletDto getWalletAndBank(int id);
+        Wallet getWalletandBankCheck(int id);
+
 
 
     }

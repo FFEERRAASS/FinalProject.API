@@ -33,6 +33,8 @@ namespace FinalProject.Infra.Service
                      new Claim("Name",result.Username),
                      new Claim("Role",result.RoleidFk.ToString()),
                      new Claim("USERID",result.Userid.ToString()),
+                     new Claim("IsAccepted",result.Isaccepted.ToString()),
+
 
                 };
                 var tokenOptions = new JwtSecurityToken

@@ -40,6 +40,12 @@ namespace FinalProject.API.Controllers
         {
             userService.CreateUser(user);
         }
+        [HttpGet("getallusersinnerrole")]
+        public List<userRoleDto> getallusersinnerrole()
+        {
+            return userService.getallusersinnerrole();
+        }
+
         [Route("UpdateUser")]
         [HttpPut]
         public void UpdateUser(User user)
@@ -65,7 +71,7 @@ namespace FinalProject.API.Controllers
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_"+file.FileName;
-            var fullpath = Path.Combine("D:\\Desktop\\Final Project\\Charity-Team\\Charity-team\\src\\assets\\img", filename);
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-Team-1\\src\\assets\\img", filename);
             using(var stream =new FileStream(fullpath , FileMode.Create))
             {
                 file.CopyTo(stream);

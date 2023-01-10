@@ -34,7 +34,12 @@ namespace FinalProject.Infra.Repository
             IEnumerable<allusercount> donation = dbContext.Connection.Query<allusercount>("User_P.getCountusers", commandType: CommandType.StoredProcedure);
             return donation.SingleOrDefault();
         }
-    
+        public List<userRoleDto> getallusersinnerrole()
+        {
+            IEnumerable<userRoleDto> users = dbContext.Connection.Query<userRoleDto>("User_P.getallusersinnerrole", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
+
 
 
         public void CreateUser(User user)

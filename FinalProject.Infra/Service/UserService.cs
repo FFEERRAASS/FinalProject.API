@@ -43,6 +43,11 @@ namespace FinalProject.Infra.Service
         {
             return userRepository.getCountusers();
         }
+        public List<userRoleDto> getallusersinnerrole()
+        {
+            return userRepository.getallusersinnerrole();
+        }
+
 
     }
 }

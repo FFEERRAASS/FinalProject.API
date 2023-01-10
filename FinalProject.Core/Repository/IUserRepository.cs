@@ -14,6 +14,7 @@ namespace FinalProject.Core.Repository
         public void DeleteUser(int id);
         public Countbenefichary GetbeneficharyCount();
         public allusercount getCountusers();
+        List<userRoleDto> getallusersinnerrole();
 
 
     }

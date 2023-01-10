@@ -17,6 +17,8 @@ namespace FinalProject.Core.Repository
         public void transfermoney(int id);
         Wallet getwalletforuser(int id);
         WalletDto getWalletAndBank(int id);
+        Wallet getWalletandBankCheck(int id);
+
 
 
 

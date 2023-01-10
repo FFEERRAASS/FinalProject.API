@@ -75,7 +75,9 @@ namespace FinalProject.API
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IDonationRepository,DonationRepository>();
             services.AddScoped<IDonationService,DonationService>();
-           
+
+            services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IReportService, ReportService>();
 
             services.AddScoped<ICategoryService, CategoryService>();
 
