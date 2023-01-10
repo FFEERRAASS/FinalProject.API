@@ -10,6 +10,7 @@ namespace FinalProject.Core.Service
         public List<Cahrity> GetAllcahrity();
         public void Createcahrity(Cahrity cahrity);
         public void Updatecahrity(Cahrity cahrity);
+        public void UpdateCharityUserWallet(int id);
         public void DeleteCategory(int id);
         public Cahrity GetcahrityById(int id);
         public List<Cahrity> GetcahrityByCategory(int id);

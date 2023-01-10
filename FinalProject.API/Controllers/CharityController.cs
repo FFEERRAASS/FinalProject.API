@@ -57,12 +57,17 @@ namespace FinalProject.API.Controllers
         {
             return _charityService.GetcahrityByCategory(id);
         }
+
+
         [HttpGet]
         [Route("getAllCharityDto/{id}")]
         public List<CharityDTO> getAllCharityDto(int id)
         {
             return _charityService.getAllCharityDto(id);
         }
+
+
+
         [HttpGet]
         [Route("getCharityProfile/{id}")]
         public Cahrity GetCharityProfile(int id)
@@ -81,6 +86,11 @@ namespace FinalProject.API.Controllers
         {
             return _charityService.GetAllcahrityAccepted();
         }
-
+        [HttpGet]
+        [Route("UpdateCharityUserWallet/{id}")]
+        public void UpdateCharityUserWallet(int id)
+        {
+            _charityService.UpdateCharityUserWallet(id);
+        }
     }
 }

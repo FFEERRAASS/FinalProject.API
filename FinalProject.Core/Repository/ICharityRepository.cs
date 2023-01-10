@@ -11,6 +11,7 @@ namespace FinalProject.Core.Repository
          void Createcahrity(Cahrity cahrity);
          void Updatecahrity(Cahrity cahrity);
         public void DeleteCategory(int id);
+        public void UpdateCharityUserWallet(int id);
         public Cahrity GetcahrityById(int id);
         List<Cahrity> GetcahrityByCategory(int id);
         List<CharityDTO> getAllCharityDto(int id);

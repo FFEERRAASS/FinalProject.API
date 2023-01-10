@@ -61,6 +61,9 @@ namespace FinalProject.Infra.Service
             return _charityRepository.GetAllcahrityAccepted();
         }
 
-
+        public void UpdateCharityUserWallet(int id)
+        {
+              _charityRepository.UpdateCharityUserWallet(id);
+        }
     }
 }

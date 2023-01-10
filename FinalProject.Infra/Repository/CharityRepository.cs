@@ -78,6 +78,7 @@ namespace FinalProject.Infra.Repository
             var p = new DynamicParameters();
             p.Add("charityID1", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
            _dbContext.Connection.Execute("cahrity_P.Deletecahrity", p, commandType: CommandType.StoredProcedure);
+       
         }
 
         public Cahrity GetcahrityById(int id)
@@ -120,6 +121,14 @@ namespace FinalProject.Infra.Repository
             p.Add("id", cahrity.Charityid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("balance1", cahrity.Balance, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("cahrity_P.updateBalanceCharity", p, commandType: CommandType.StoredProcedure);
+
+        }
+
+        public void UpdateCharityUserWallet(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("userid", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("cahrity_P.UpdateCharityUserWallet", p, commandType: CommandType.StoredProcedure);
 
         }
     }
