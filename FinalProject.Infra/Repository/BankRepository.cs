@@ -27,6 +27,10 @@ namespace FinalProject.Infra.Repository
             var p = new DynamicParameters();
             p.Add("BalanceP",bankaccount.Balance , dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("AccountNumP", bankaccount.Accountnum, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("expireddatee", bankaccount.EXPIREDDATE, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("fulln", bankaccount.FULLNAME, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            p.Add("cvv", bankaccount.CVV, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.Execute("BankAccount_p.createAccount", p, commandType: CommandType.StoredProcedure);
 
         }

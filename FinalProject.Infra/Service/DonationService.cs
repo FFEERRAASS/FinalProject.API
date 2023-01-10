@@ -36,10 +36,10 @@ namespace FinalProject.Infra.Service
         {
             donationRepository.DeleteDonation(id);
         }
-        public CountUser GetDonationCount()
-        {
-            return donationRepository.GetDonationCount();
-        }
+        //public CountUser GetDonationCount()
+        //{
+        //    return donationRepository.GetDonationCount();
+        //}
         public List<DonationDto> searchfordonations(searchdateDTO datess)
         {
             return donationRepository.searchfordonations(datess);
