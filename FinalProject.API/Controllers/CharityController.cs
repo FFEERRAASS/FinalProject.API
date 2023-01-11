@@ -2,7 +2,9 @@
 using FinalProject.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace FinalProject.API.Controllers
 {
@@ -91,6 +93,21 @@ namespace FinalProject.API.Controllers
         public void UpdateCharityUserWallet(int id)
         {
             _charityService.UpdateCharityUserWallet(id);
+        }
+        [Route("UploadDocs")]
+        [HttpPost]
+        public Cahrity UploadDocs()
+        {
+            var file = Request.Form.Files[0];
+            var filename = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team\\src\\assets\\Docs", filename);
+            using (var stream = new FileStream(fullpath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Cahrity item = new Cahrity();
+            item.DocidFk = filename;
+            return item;
         }
     }
 }
