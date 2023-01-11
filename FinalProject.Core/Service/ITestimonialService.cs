@@ -12,6 +12,8 @@ namespace FinalProject.Core.Service
         void UPDATEtestimonial(Testimonial testimonial);
         Testimonial GettestimonialtById(int id);
         void Deletetestimonial(int id);
+        List<userTestimonialsDTO> GetReviews();
+
         List<userTestimonialsDTO> getusertestimonial();
         List<userTestimonialsDTO> GetAlltestimonialAccepted();
         List<userTestimonialsDTO> ReturnLastthreeAccepted();

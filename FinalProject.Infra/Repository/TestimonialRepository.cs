@@ -80,6 +80,10 @@ namespace FinalProject.Infra.Repository
             var result = dbContext.Connection.Execute("testimonial_p.Deletetestimonial", p, commandType: CommandType.StoredProcedure);
         }
 
-
+        public List<userTestimonialsDTO> GetReviews()
+        {
+            IEnumerable<userTestimonialsDTO> users = dbContext.Connection.Query<userTestimonialsDTO>("testimonial_p.GetReviews", commandType: CommandType.StoredProcedure);
+            return users.ToList();
+        }
     }
 }

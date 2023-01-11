@@ -65,6 +65,12 @@ namespace FinalProject.API.Controllers
             testimonialService.Deletetestimonial(id);
         }
 
+        [HttpGet("GetReviews")]
+        public List<userTestimonialsDTO> GetReviews()
+        {
+            return testimonialService.GetReviews();
+        }
+
         [HttpPost]
         [Route("UploadDocuments")]
         [HttpPost]
