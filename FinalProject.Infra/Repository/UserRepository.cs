@@ -40,6 +40,17 @@ namespace FinalProject.Infra.Repository
             return users.ToList();
         }
 
+        public User userCheckAvailable(User user)
+        {
+            var p = new DynamicParameters();
+            p.Add("emailC", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            p.Add("usernameC", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("phonenumberC", user.Phonenumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<User> users = dbContext.Connection.Query<User>("User_P.userCheckAvailable", p, commandType: CommandType.StoredProcedure);
+            return users.FirstOrDefault();
+
+        }
 
 
         public void CreateUser(User user)

@@ -28,6 +28,12 @@ namespace FinalProject.API.Controllers
         {
             return userService.GetbeneficharyCount();
         }
+        [HttpPost("CheckAvailable")]
+        public User userCheckAvailable(User user)
+        {
+            return userService.userCheckAvailable(user);
+        }
+
         [HttpGet("getCountusers")]
         public allusercount getCountusers()
         {

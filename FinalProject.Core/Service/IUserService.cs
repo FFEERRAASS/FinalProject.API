@@ -15,6 +15,8 @@ namespace FinalProject.Core.Service
         public Countbenefichary GetbeneficharyCount();
         public allusercount getCountusers();
         List<userRoleDto> getallusersinnerrole();
+        User userCheckAvailable(User user);
+
 
     }
 }

@@ -49,5 +49,11 @@ namespace FinalProject.Infra.Service
         {
             return testimonialRepository.ReturnLastthreeAccepted();
         }
+
+        public List<userTestimonialsDTO> GetReviews()
+        {
+            return testimonialRepository.GetReviews();
+        }
+
     }
 }
