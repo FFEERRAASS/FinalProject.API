@@ -16,6 +16,6 @@ namespace FinalProject.Core.Repository
         public allusercount getCountusers();
         List<userRoleDto> getallusersinnerrole();
 
-
+        User userCheckAvailable(User user);
     }
 }

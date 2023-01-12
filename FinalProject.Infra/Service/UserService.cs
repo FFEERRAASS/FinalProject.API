@@ -22,6 +22,11 @@ namespace FinalProject.Infra.Service
         {
              userRepository.CreateUser(user);
         }
+        public User userCheckAvailable(User user)
+        {
+            return userRepository.userCheckAvailable(user);
+        }
+
         public void UpdateUser( User user)
         {
             userRepository.UpdateUser(user);
