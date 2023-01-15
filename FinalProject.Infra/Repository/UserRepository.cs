@@ -9,6 +9,8 @@ using System.Text;
 using FinalProject.Infra.Common;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
 
 namespace FinalProject.Infra.Repository
 {
@@ -67,6 +69,10 @@ namespace FinalProject.Infra.Repository
             p.Add("accepts", user.Isaccepted, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("roleid", user.RoleidFk, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("username", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            SmtpClient smtp = new SmtpClient("smtp-mail.outlook.com", 587);
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("Neptune-Shoop@outlook.com", "feras123");
+            smtp.SendMailAsync("Neptune-Shoop@outlook.com", user.Email, "BENEVOLENT HAND", "Welcome to the Benevolent Hand family. Our motto is a giving hand");
             var result = dbContext.Connection.Execute("User_P.CreateUser", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateUser(User user)

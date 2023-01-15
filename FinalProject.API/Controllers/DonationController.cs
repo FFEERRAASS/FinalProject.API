@@ -16,12 +16,12 @@ namespace FinalProject.API.Controllers
         {
             this.donationService = donationService;
         }
-        //[HttpGet]
-        //[Route("GetDonationCount")]
-        //public CountUser GetDonationCount()
-        //{
-        //    return donationService.GetDonationCount();
-        //}
+        [HttpGet]
+        [Route("GetDonationCount")]
+        public CountUser GetDonationCount()
+        {
+            return donationService.GetDonationCount();
+        }
 
         [HttpGet]
         [Route("getAllDonation")]

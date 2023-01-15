@@ -50,11 +50,13 @@ namespace FinalProject.API.Controllers
 
         [Route("UploadImages")]
         [HttpPost]
+
+        //D:\Desktop\Charity-Platform-team\src\assets\img FERAS
         public Category UploadImage()
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullpath = Path.Combine("C:\\Users\\user\\Desktop\\tahaluf\\finalproject\\===f-p-8-1\\Charity-Platform-team\\src\\assets\\img", filename);
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team-1\\src\\assets\\img", filename);
             using (var stream = new FileStream(fullpath, FileMode.Create))
             {
                 file.CopyTo(stream);

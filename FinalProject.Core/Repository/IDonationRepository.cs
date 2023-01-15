@@ -12,7 +12,7 @@ namespace FinalProject.Core.Repository
         public void UpdateDonation(Donation donation);
         public List<DonationDto> GetDonationByuserId(int id);
         public void DeleteDonation(int id);
-        //public CountUser GetDonationCount();
+        public CountUser GetDonationCount();
 
         public List<DonationDto> searchfordonations(searchdateDTO datess);
 
