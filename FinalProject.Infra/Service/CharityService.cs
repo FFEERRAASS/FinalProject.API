@@ -65,5 +65,9 @@ namespace FinalProject.Infra.Service
         {
               _charityRepository.UpdateCharityUserWallet(id);
         }
+        public void Deletecharity(int id)
+        {
+            _charityRepository.Deletecharity(id);
+        }
     }
 }

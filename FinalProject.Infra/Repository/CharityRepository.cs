@@ -80,6 +80,13 @@ namespace FinalProject.Infra.Repository
            _dbContext.Connection.Execute("cahrity_P.Deletecahrity", p, commandType: CommandType.StoredProcedure);
        
         }
+        public void Deletecharity(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("charityID1", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("cahrity_P.Deletecahrity", p, commandType: CommandType.StoredProcedure);
+
+        }
 
         public Cahrity GetcahrityById(int id)
         {

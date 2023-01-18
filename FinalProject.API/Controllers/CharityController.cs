@@ -100,14 +100,21 @@ namespace FinalProject.API.Controllers
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team-1\\src\\assets\\Docs", filename);
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team\\src\\assets\\Docs", filename);
             using (var stream = new FileStream(fullpath, FileMode.Create))
             {
                 file.CopyTo(stream);
             }
             Cahrity item = new Cahrity();
             item.DocidFk = filename;
+
             return item;
+        }
+        [Route("deletecharity/{id}")]
+        [HttpDelete]
+        public void DeleteCharity(int id)
+        {
+            _charityService.Deletecharity(id);
         }
     }
 }

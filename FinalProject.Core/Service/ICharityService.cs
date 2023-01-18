@@ -19,6 +19,7 @@ namespace FinalProject.Core.Service
         void UpdateBalanceCharity(Cahrity cahrity);
         List<Cahrity> GetAllcahrityAccepted();
 
+        public void Deletecharity(int id);
 
 
     }

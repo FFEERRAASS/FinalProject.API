@@ -18,6 +18,8 @@ namespace FinalProject.Core.Repository
         public Cahrity GetCharityProfile(int id);
         void UpdateBalanceCharity(Cahrity cahrity);
         public List<Cahrity> GetAllcahrityAccepted();
+        public void Deletecharity(int id);
+
 
     }
 }

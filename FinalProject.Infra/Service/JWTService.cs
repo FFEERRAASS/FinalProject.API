@@ -34,13 +34,11 @@ namespace FinalProject.Infra.Service
                      new Claim("Role",result.RoleidFk.ToString()),
                      new Claim("USERID",result.Userid.ToString()),
                      new Claim("IsAccepted",result.Isaccepted.ToString()),
-
-
                 };
                 var tokenOptions = new JwtSecurityToken
                     (
                         claims: claims,
-                        expires: DateTime.Now.AddSeconds(10),
+                        expires: DateTime.Now.AddSeconds(10000),
                         signingCredentials: signinCredentials
                     );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);

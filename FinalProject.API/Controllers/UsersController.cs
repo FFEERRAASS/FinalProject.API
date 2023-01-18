@@ -77,7 +77,7 @@ namespace FinalProject.API.Controllers
         {
             var file = Request.Form.Files[0];
             var filename = Guid.NewGuid().ToString() + "_"+file.FileName;
-            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team-1\\src\\assets\\img", filename);
+            var fullpath = Path.Combine("D:\\Desktop\\Charity-Platform-team\\src\\assets\\img", filename);
             using(var stream =new FileStream(fullpath , FileMode.Create))
             {
                 file.CopyTo(stream);
